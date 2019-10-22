@@ -44,6 +44,7 @@ namespace Semana10.Migrations
                         FirstName = c.String(nullable: false, maxLength: 50),
                         HireDate = c.DateTime(),
                         EnrollmentDate = c.DateTime(),
+                        Active = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.ID);
@@ -54,6 +55,7 @@ namespace Semana10.Migrations
                     {
                         InstructorID = c.Int(nullable: false),
                         Location = c.String(maxLength: 50),
+                        active = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.InstructorID)
                 .ForeignKey("dbo.People", t => t.InstructorID)
